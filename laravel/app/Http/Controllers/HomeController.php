@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function home_index(Request $request)
     {
-         
-        return Inertia::render('Home', []);
+        sleep(2);
+        return Inertia::render('home/Home', ['nombre' => 'césar',]);
     }
 }
