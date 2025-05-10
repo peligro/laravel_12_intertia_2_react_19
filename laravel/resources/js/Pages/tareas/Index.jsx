@@ -1,7 +1,6 @@
 
-import { Link } from "@inertiajs/react";
+import Paginacion from '../../Componentes/Paginacion';
 const Nosotros = ({ datos }) => {
-
   return (
     <>
       <h1>Tareas</h1>
@@ -28,24 +27,11 @@ const Nosotros = ({ datos }) => {
             ))}
           </tbody>
         </table>
+
+         <Paginacion datos={datos} />
+
       </div>
-      {datos.links.map((link, index) =>
-        link.url ? (
-          <Link
-            key={index}
-            href={link.url}
-            dangerouslySetInnerHTML={{ __html: link.label }}
-            className={`p-1 mx-1 ${link.active ? "text-blue-500 font-bold" : ""
-              }`}
-          />
-        ) : (
-          <span
-            key={index}
-            dangerouslySetInnerHTML={{ __html: link.label }}
-            className="p-1 mx-1 text-slate-300"
-          ></span>
-        )
-      )}
+
     </>
   )
 }
