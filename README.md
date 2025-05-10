@@ -92,3 +92,74 @@ export default defineConfig({
 });
 
 ```
+
+### se debe renombrar el archivo resources/js/app.js a resources/js/app.jsx y agregarle lo siguiente
+
+```jsx
+import './bootstrap';
+import { createInertiaApp } from '@inertiajs/react';
+import { createRoot } from 'react-dom/client';
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
+    return pages[`./Pages/${name}.jsx`];
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(<App {...props} />)
+  },
+})
+```
+
+### se debe renombrar el archivo resources/views/welcome.blade.php a resources/views/app.blade.php y agregarle lo siguiente
+
+```php
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
+    @inertiaHead
+  </head>
+  <body>
+    @inertia
+  </body>
+</html>
+```
+
+### se debe crear el primer controlador
+
+```bash
+php artisan make:controller HomeController
+```
+
+### y en el archivo routes/web.php agregar la ruta con inertia
+
+```php
+
+use Illuminate\Support\Facades\Route;
+
+Route::inertia('/', 'home/Home')->name("home_index");
+
+```
+
+### luego en el controlador app/Http/Controllers/HomeController.php agregar la ruta
+
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+class HomeController extends Controller
+{
+    public function index(Request $request)
+    {
+         
+        return Inertia::render('Home', []);
+    }
+}
+```
+
