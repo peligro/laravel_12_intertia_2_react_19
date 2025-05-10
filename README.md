@@ -1,7 +1,6 @@
-# Laravel 12 con Intertia 2
+# Laravel 12 con Intertia 2 y React 19
 
-Integración de Laravel 12 con Intertia 2.
-
+Integración de Laravel 12 con Intertia 2, sin utilizar el Starter Kits para tener una instalación más limpia
 
 ### 1. Ejecutar docker compose
 
