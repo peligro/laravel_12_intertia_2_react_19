@@ -37,7 +37,13 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+            [
+                'flash' => 
+                [
+                'css' => fn () => $request->session()->get('css'),
+                'mensaje' => fn () => $request->session()->get('mensaje')
+                ],
+            ]
         ];
     }
 }

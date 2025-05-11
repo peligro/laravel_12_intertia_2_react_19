@@ -162,3 +162,42 @@ class HomeController extends Controller
 }
 ```
 
+### instalación de Ziggy para poder usar route en los enlaces
+
+```bash
+npm install ziggy-js
+```
+
+### instala tightenco/ziggy
+
+```bash
+composer require tightenco/ziggy
+```
+
+
+### Publica la configuración de Ziggy
+
+```bash
+php artisan vendor:publish --provider="Tighten\Ziggy\ZiggyServiceProvider"
+```
+
+### En tu archivo resources/views/app.blade.php, asegúrate de tener esto antes de cargar Vite/JS:
+
+```php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>@yield('title', 'Mi App')</title>
+    @viteReactRefresh
+    @vite(['resources/js/app.jsx'])
+    {{-- Aquí se inyectan todas las rutas nombradas --}}
+    @routes
+</head>
+<body>
+    <div id="app">
+        {!! $page !!}
+    </div>
+</body>
+</html>
+```
