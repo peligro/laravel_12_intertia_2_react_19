@@ -201,3 +201,10 @@ php artisan vendor:publish --provider="Tighten\Ziggy\ZiggyServiceProvider"
 </body>
 </html>
 ```
+
+### toast con toastr
+
+
+```bash
+npm install toastr --save
+```

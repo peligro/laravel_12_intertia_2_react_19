@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
                 </ul>
             </header>
             <main>
-            
+            <div id="toast-container" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: '1050' }}></div>
                 {children}
             </main>
            </div>

@@ -39,15 +39,9 @@ class TareasController extends Controller
         $save->fecha=date('Y-m-d');
         $save->save();
          //si da problemas con los autoincrementables usar: SELECT setval('tareas_id_seq', (SELECT MAX(id) FROM tareas));
-        //return redirect()->route('tareas_index')->with(['css'=>'success', 'mensaje'=>'Se creó el registro exitosamente']);
-        //$request->session()->flash('css', 'css');
-        //$request->session()->flash('mensaje', 'Oh no!');
-        // then redirect
-        //return redirect()->route('tareas_index');
-
-        $request->session()->flash('flash.css', 'Yay it works!');
-        $request->session()->flash('flash.mensaje', 'success');
-        return redirect('/tareas');
+        return redirect()->route('tareas_add')->with(['css'=>'success', 'mensaje'=>'Se creó el registro exitosamente']);
+     
+      
 
        
     }

@@ -41,8 +41,10 @@ class HandleInertiaRequests extends Middleware
                 'flash' => 
                 [
                 'css' => fn () => $request->session()->get('css'),
-                'mensaje' => fn () => $request->session()->get('mensaje')
+                'mensaje' => fn () => $request->session()->get('mensaje'),
+                
                 ],
+                'name'=>'pablo gálvez'
             ]
         ];
     }
